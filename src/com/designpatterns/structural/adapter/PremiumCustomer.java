@@ -6,9 +6,8 @@ public class PremiumCustomer implements Customer
     private String customerName;
     private int membershipRemainingDays;
 
-    public PremiumCustomer(final String customerName, final int membershipRemainingDays) {
+    public PremiumCustomer(final String customerName) {
         this.customerName = customerName;
-        this.membershipRemainingDays = membershipRemainingDays;
     }
 
     public int getMembershipRemainingDays() {
@@ -27,5 +26,10 @@ public class PremiumCustomer implements Customer
     @Override
     public String getCustomerId() {
         return this.customerId;
+    }
+
+    @Override
+    public String getNotification() {
+        return String.format("Hi %s, your premium subscription ends in few days...", this.customerName);
     }
 }

@@ -6,9 +6,8 @@ public class CommunityCustomer implements Customer
     private String customerId;
     private String customerName;
 
-    public CommunityCustomer(final String customerName, final int trialEndsInDays) {
+    public CommunityCustomer(final String customerName) {
         this.customerName = customerName;
-        this.trialEndsInDays = trialEndsInDays;
     }
 
     public int getTrialEndsInDays() {
@@ -27,5 +26,10 @@ public class CommunityCustomer implements Customer
     @Override
     public String getCustomerId() {
         return this.customerId;
+    }
+
+    @Override
+    public String getNotification() {
+        return String.format("Hi %s, your free trial ends in few days...", this.customerName);
     }
 }

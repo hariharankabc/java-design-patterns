@@ -5,4 +5,6 @@ public interface Customer
     String getCustomerName();
 
     String getCustomerId();
+
+    String getNotification();
 }
