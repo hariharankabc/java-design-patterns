@@ -5,6 +5,10 @@ import com.designpatterns.structural.adapter.NotificationAdaptor;
 import com.designpatterns.structural.adapter.PremiumCustomer;
 import com.designpatterns.structural.adapter.ServiceEndReminderNotification;
 import com.designpatterns.structural.bridge.*;
+import com.designpatterns.structural.composite.ProductCatalogue;
+import com.designpatterns.structural.composite.Products;
+import com.designpatterns.structural.composite.Television;
+import com.designpatterns.structural.composite.WashingMachine;
 
 public class Main
 {
@@ -25,5 +29,31 @@ public class Main
         order1.orderPayment();
         Order order2 = new Bill(new CreditCard(), new EMI());
         order2.orderPayment();
+
+        //Composite Pattern
+        System.out.println("Composite Pattern");
+        ProductCatalogue televisionCatalogue = new ProductCatalogue();
+        Television samsungTelevision = new Television(10000, 1232123, "Samsung Television");
+        Television sonyTelevision = new Television(10000, 1232123, "Sony Television");
+        televisionCatalogue.addProductToCatalogue(samsungTelevision);
+        televisionCatalogue.addProductToCatalogue(sonyTelevision);
+
+        ProductCatalogue washingMachinesCatalogue = new ProductCatalogue();
+        WashingMachine boschWashingMachine = new WashingMachine(10000, 1232123, "Bosch washingMachinesCatalogue");
+        WashingMachine lgWashingMachine = new WashingMachine(10000, 1232123, "LG washingMachinesCatalogue");
+        washingMachinesCatalogue.addProductToCatalogue(boschWashingMachine);
+        washingMachinesCatalogue.addProductToCatalogue(lgWashingMachine);
+
+        ProductCatalogue smartTelevisionCatalogue = new ProductCatalogue();
+        Television samsungSmartTelevision = new Television(10000, 1232123, "Samsung Smart Television");
+        Television sonySmartTelevision = new Television(10000, 1232123, "Sony Smart Television");
+        smartTelevisionCatalogue.addProductToCatalogue(samsungSmartTelevision);
+        smartTelevisionCatalogue.addProductToCatalogue(sonySmartTelevision);
+
+        ProductCatalogue productCatalogue = new ProductCatalogue();
+        productCatalogue.addProductToCatalogue(televisionCatalogue);
+        productCatalogue.addProductToCatalogue(washingMachinesCatalogue);
+        productCatalogue.addProductToCatalogue(smartTelevisionCatalogue);
+        productCatalogue.showProductDetails();
     }
 }
