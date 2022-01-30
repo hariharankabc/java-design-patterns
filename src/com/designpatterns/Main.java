@@ -9,6 +9,9 @@ import com.designpatterns.structural.composite.ProductCatalogue;
 import com.designpatterns.structural.composite.Products;
 import com.designpatterns.structural.composite.Television;
 import com.designpatterns.structural.composite.WashingMachine;
+import com.designpatterns.structural.decorator.AnnualMaintenance;
+import com.designpatterns.structural.decorator.Insurance;
+import com.designpatterns.structural.decorator.Mobile;
 
 public class Main
 {
@@ -55,5 +58,18 @@ public class Main
         productCatalogue.addProductToCatalogue(washingMachinesCatalogue);
         productCatalogue.addProductToCatalogue(smartTelevisionCatalogue);
         productCatalogue.showProductDetails();
+
+        //Decorator Pattern
+        System.out.println("Decorator Pattern");
+        com.designpatterns.structural.decorator.Order order = new Mobile();
+        System.out.println(order.getOrderSummary() +
+                " Cost :" + order.getCost());
+
+        com.designpatterns.structural.decorator.Order orderOne = new Mobile();
+        orderOne = new Insurance(orderOne);
+        orderOne = new AnnualMaintenance(orderOne);
+        System.out.println(orderOne.getOrderSummary() +
+                " Cost :" + orderOne.getCost());
+
     }
 }
