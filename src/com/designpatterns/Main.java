@@ -12,6 +12,9 @@ import com.designpatterns.structural.composite.WashingMachine;
 import com.designpatterns.structural.decorator.AnnualMaintenance;
 import com.designpatterns.structural.decorator.Insurance;
 import com.designpatterns.structural.decorator.Mobile;
+import com.designpatterns.structural.facade.AirtelBill;
+import com.designpatterns.structural.facade.BillPay;
+import com.designpatterns.structural.facade.JioBill;
 
 public class Main
 {
@@ -70,6 +73,13 @@ public class Main
         orderOne = new AnnualMaintenance(orderOne);
         System.out.println(orderOne.getOrderSummary() +
                 " Cost :" + orderOne.getCost());
+
+
+        //Facade Pattern
+        System.out.println("Facade Pattern");
+        BillPay billPay = new BillPay();
+        JioBill jioBill = billPay.getJioBroadbandBill("9999999999");
+        AirtelBill airtelBill = billPay.getAirtelBroadbandBill("9999999999");
 
     }
 }
