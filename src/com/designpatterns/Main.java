@@ -15,6 +15,7 @@ import com.designpatterns.structural.decorator.Mobile;
 import com.designpatterns.structural.facade.AirtelBill;
 import com.designpatterns.structural.facade.BillPay;
 import com.designpatterns.structural.facade.JioBill;
+import com.designpatterns.structural.proxy.Cart;
 
 public class Main
 {
@@ -28,6 +29,7 @@ public class Main
         System.out.println(serviceEndReminderNotificationPremium.getNotification());
         ServiceEndReminderNotification serviceEndReminderNotificationCommunity = new ServiceEndReminderNotification("Dev", "community");
         System.out.println(serviceEndReminderNotificationCommunity.getNotification());
+        System.out.println("---");
 
         //Bridge Pattern
         System.out.println("Bridge Pattern");
@@ -35,6 +37,7 @@ public class Main
         order1.orderPayment();
         Order order2 = new Bill(new CreditCard(), new EMI());
         order2.orderPayment();
+        System.out.println("---");
 
         //Composite Pattern
         System.out.println("Composite Pattern");
@@ -61,6 +64,7 @@ public class Main
         productCatalogue.addProductToCatalogue(washingMachinesCatalogue);
         productCatalogue.addProductToCatalogue(smartTelevisionCatalogue);
         productCatalogue.showProductDetails();
+        System.out.println("---");
 
         //Decorator Pattern
         System.out.println("Decorator Pattern");
@@ -73,6 +77,7 @@ public class Main
         orderOne = new AnnualMaintenance(orderOne);
         System.out.println(orderOne.getOrderSummary() +
                 " Cost :" + orderOne.getCost());
+        System.out.println("---");
 
 
         //Facade Pattern
@@ -80,6 +85,13 @@ public class Main
         BillPay billPay = new BillPay();
         JioBill jioBill = billPay.getJioBroadbandBill("9999999999");
         AirtelBill airtelBill = billPay.getAirtelBroadbandBill("9999999999");
+        System.out.println("---");
+
+        //Proxy Pattern
+        com.designpatterns.structural.proxy.Order cart = new Cart();
+        System.out.println(cart.placeOrder("TV"));
+        System.out.println(cart.placeOrder("Mobile"));
+        System.out.println("---End of Structural Design pattern ---");
 
     }
 }
