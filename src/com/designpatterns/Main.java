@@ -88,10 +88,14 @@ public class Main
         System.out.println("---");
 
         //Proxy Pattern
+        System.out.println("Proxy Pattern");
         com.designpatterns.structural.proxy.Order cart = new Cart();
         System.out.println(cart.placeOrder("TV"));
         System.out.println(cart.placeOrder("Mobile"));
         System.out.println("---End of Structural Design pattern ---");
+
+        //Chain of Responsibilities Pattern
+        System.out.println("Chain of Responsibilities Pattern");
 
     }
 }
